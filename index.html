@@ -1,45 +1,31 @@
-<div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-  <div class="bg-slate-800/80 px-4 py-3 flex items-center justify-between border-b border-slate-700/60">
-    <div class="flex items-center gap-3">
-      <span id="gameCategory" class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-pink-500/10 text-pink-400 border border-pink-500/20">
-        <i class="fa-solid fa-gamepad text-[10px]"></i> Category
-      </span>
-      <h2 id="gameTitle" class="font-bold text-slate-100 text-sm sm:text-base truncate">Game Title</h2>
-    </div>
-
-    <div class="flex items-center gap-2">
-      <button onclick="reloadGameFrame('gameDisplayFrame')" title="Reload" class="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 transition">
-        <i class="fa-solid fa-rotate-right text-xs"></i>
-      </button>
-      <button onclick="openFrameFullscreen('gameDisplayFrame')" title="Fullscreen" class="p-2 rounded-lg bg-pink-600 hover:bg-pink-500 text-white font-medium text-xs flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-expand"></i>
-        <span class="hidden sm:inline">Fullscreen</span>
-      </button>
-    </div>
-  </div>
-  <div class="relative w-full bg-black aspect-video min-h-[340px] md:min-h-[500px] flex items-center justify-center">
-    <iframe 
-      id="gameDisplayFrame" 
-      src="https://algebra-skills-us.github.io/Yup/" 
-      class="w-full h-full border-0" 
-      allow="autoplay; gamepad" 
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-
-<script>
-  function reloadGameFrame(id) {
-    const frame = document.getElementById(id);
-    if (frame && frame.src) frame.src = frame.src;
-  }
-
-  function openFrameFullscreen(id) {
-    const frame = document.getElementById(id);
-    if (frame.requestFullscreen) {
-      frame.requestFullscreen();
-    } else if (frame.webkitRequestFullscreen) {
-      frame.webkitRequestFullscreen();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Screen Game Embed</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #000000;
     }
-  }
-</script>
+  </style>
+</head>
+<body class="w-screen h-screen m-0 p-0 overflow-hidden bg-black">
+
+  <!-- 100% Fullscreen Embed Container -->
+  <iframe 
+    id="gameDisplayFrame" 
+    src="https://algebra-skills-us.github.io/Yup/" 
+    class="w-full h-full border-0 block" 
+    allow="autoplay; gamepad" 
+    allowfullscreen>
+  </iframe>
+
+</body>
+</html>
